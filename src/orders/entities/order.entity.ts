@@ -106,6 +106,6 @@ export class Order {
       () => Detail, 
       detail => detail.flowkey,
       {cascade: true}   // 關聯details用
-    )
+  )
   details: Detail[];
 }

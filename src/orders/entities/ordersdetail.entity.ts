@@ -7,7 +7,10 @@ export class OrdersDetail {
 
   static REPOSITORY = 'ORDERDETAILS_REPOSITORY';
 
-  @ManyToOne(() => Master, (master:Master) => master.details)
+  @ManyToOne(
+    () => Master, 
+    master => master.details
+  )
   @JoinColumn({name: "flowkey"})
   @ApiProperty({description:'流程代碼',example:'1O1110218001'})
   @Column({primary: true})
