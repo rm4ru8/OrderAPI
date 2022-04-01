@@ -58,6 +58,6 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '!QAZ2wsx';
 
 ```
 yarn add typeorm-model-generator
-npx typeorm-model-generator -h #主機 -d test -u sa -x #密碼 -e mssql -o .
+npx typeorm-model-generator -h #主機 -d #資料庫名 -u sa -x #密碼 -e mssql -o .
 ```
 
