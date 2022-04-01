@@ -21,9 +21,9 @@ export class OrdersDetail {
   @Column({length: 20})
   productcode: string;
   
-    @ApiProperty({description:'商品名稱',example:'2022好運攏虎你福袋'})
-    @Column({length: 50})
-    productname: string;
+  @ApiProperty({description:'商品名稱',example:'2022好運攏虎你福袋'})
+  @Column({length: 50})
+  productname: string;
   
   @ApiProperty({description:'商品批號',example:'G021023.SS'})
   @Column("varchar",{length: 30})
