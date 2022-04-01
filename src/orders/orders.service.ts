@@ -55,7 +55,7 @@ export class OrdersService {
     .where("flowkey = :id",{id: id}).execute()
   }
 
-  protected async hasMasterEntity(id: string) {
+  protected async hasMasterEntity(id: string): Promise<boolean> {
     const master = await this.masterRpstry.findOne(id)
     if(master) {return true}
     else {return false}
