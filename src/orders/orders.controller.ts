@@ -3,38 +3,40 @@ import { OrdersService as Service } from './orders.service';
 import { Order as Master } from './entities/order.entity';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
-@Controller()
-@ApiTags('訂單')
+const formName: string = '訂單';
+
+@Controller('order')
+@ApiTags(`${formName}接口`)
 export class OrdersController {
-  constructor(private readonly ordersService: Service) {}
+  constructor(protected service: Service) {}
 
-  @Post('order')
-  @ApiOperation({summary: '新增訂單資料'})
-  create(@Body() createOrderDto: Master) {
-    return this.ordersService.create(createOrderDto);
+  @Post()
+  @ApiOperation({summary: `新增${formName}資料`})
+  create(@Body() createDto: Master) {
+    return this.service.create(createDto);
   }
 
-  @Get('orders')
-  @ApiOperation({summary: '查詢所有訂單資料'})
+  @Get()
+  @ApiOperation({summary: `獲取所有${formName}資料`})
   findAll() {
-    return this.ordersService.findAll();
+    return this.service.findAll();
   }
 
-  @Get('order/:id')
-  @ApiOperation({summary: '獲取一筆訂單資料'})
-  findOne(@Param('id') id: string) {
-    return this.ordersService.findOne(id);
+  @Get(':flowkey')
+  @ApiOperation({summary: `依flowkey獲取一筆${formName}資料`})
+  findOne(@Param('flowkey') id: string) {
+    return this.service.findOne(id);
   }
 
-  @Patch('order/:id')
-  @ApiOperation({summary: '修改訂單資料'})
-  update(@Param('id') id: string, @Body() updateOrderDto: Master) {
-    return this.ordersService.update(id, updateOrderDto);
+  @Patch(':flowkey')
+  @ApiOperation({summary: `依flowkey修改${formName}資料`})
+  update(@Param('flowkey') id: string, @Body() updateDto: Master) {
+    return this.service.update(id, updateDto);
   }
 
-  @Delete('order/:id')
-  @ApiOperation({summary: '刪除訂單資料'})
-  remove(@Param('id') id: string) {
-    return this.ordersService.remove(id);
+  @Delete(':flowkey')
+  @ApiOperation({summary: `依flowkey刪除${formName}資料`})
+  remove(@Param('flowkey') id: string) {
+    return this.service.remove(id);
   }
 }
