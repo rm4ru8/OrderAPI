@@ -80,7 +80,7 @@ export class Order {
     example:[
       {
         flowkey: "1O1110218001",
-        seqNo: "1",
+        seqNo: 1,
         productcode: "G021023",
         batchno: "G021023.SS",
         productname: "2022好運攏虎你福袋",
@@ -91,7 +91,7 @@ export class Order {
       },
       {
         flowkey: "1O1110218001",
-        seqNo: "2",
+        seqNo: 2,
         productcode: "G021025",
         batchno: "G021025.SS",
         productname: "2022 HARRODS年度熊",
