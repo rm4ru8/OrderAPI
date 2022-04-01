@@ -23,7 +23,7 @@ export class Order {
   @Column({ name: "applicant", length: 20 })
   applicant: string;
 
-  @ApiProperty({description:'部門:一侓填寫 B11(商品組)',example:'B11'})
+  @ApiProperty({description:'部門:一侓填寫 B11(商品部)',example:'B11'})
   @Column({ name: "createdept", length: 20 })
   createdept: string;
 
