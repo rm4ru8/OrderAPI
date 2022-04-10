@@ -77,6 +77,7 @@ export class Order {
 
   @ApiProperty({
     description:'訂單明細資料',
+    type:[Detail],
     example:[
       {
         flowkey: "1O1110218001",

@@ -13,7 +13,7 @@ export class OrdersService {
   ) {}
   
     async create(masterDto: Master) {
-      if(!(await this.hasMasterEntity(masterDto.flowkey))){
+      if(await this.hasMasterEntity(masterDto.flowkey)){
         throw new NotAcceptableException(
           `${Master.name}.entity.flowkey #${masterDto.flowkey} already exists, no need to add`)
       } else return await this.masterRpstry.save(masterDto);
